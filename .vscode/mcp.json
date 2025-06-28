@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "hjmcp-stdio": {
+      "command": "node",
+      "args": ["dist/server.js"],
+      "cwd": "C:/CDrive/Workshops/CustomAI/mcpstdio/hjmcpstdio",
+      "transport": "stdio"
+    }
+  }
+}
