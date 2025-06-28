@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
 import { spawn } from "child_process";
+import { fileURLToPath } from 'url';
+import { resolve } from 'path';
 
 class SimpleTestClient {
   async testServer(): Promise<void> {
@@ -50,7 +52,10 @@ class SimpleTestClient {
   }
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+const currentFile = fileURLToPath(import.meta.url);
+const mainFile = resolve(process.argv[1]);
+
+if (currentFile === mainFile) {
   const client = new SimpleTestClient();
   client.testServer();
 }

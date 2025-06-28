@@ -12,6 +12,7 @@ import {
 } from "@modelcontextprotocol/sdk/types.js";
 import * as fs from "fs";
 import * as path from "path";
+import { fileURLToPath } from 'url';
 
 class MCPStdioServer {
   private server: Server;
@@ -344,7 +345,10 @@ Make the explanation clear and accessible.`,
   }
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+const currentFile = fileURLToPath(import.meta.url);
+const mainFile = path.resolve(process.argv[1]);
+
+if (currentFile === mainFile) {
   const server = new MCPStdioServer();
   server.run().catch((error) => {
     console.error("Server error:", error);
