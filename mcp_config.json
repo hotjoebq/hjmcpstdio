@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "hjmcp-stdio": {
+      "command": "node",
+      "args": ["dist/server.js"],
+      "cwd": "/home/ubuntu/repos/hjmcpstdio",
+      "transport": "stdio"
+    }
+  }
+}

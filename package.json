@@ -1,0 +1,26 @@
+{
+  "name": "hjmcp-stdio",
+  "version": "1.0.0",
+  "description": "A simple MCP server using stdio transport",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/server.js",
+    "test-simple": "node dist/simple-client.js",
+    "clean": "rm -rf dist"
+  },
+  "keywords": ["mcp", "stdio", "server", "vscode"],
+  "author": "hjavaherian@microsoft.com",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
