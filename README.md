@@ -27,17 +27,26 @@ npm install
 npm run build
 ```
 
-3. Test the server (choose one):
+## Testing Options
 
-**Basic functionality test:**
+### Option 1: Basic Functionality Test (No Additional Tools Required)
 ```bash
 npm run test-simple
 ```
+This runs a simple client that tests basic MCP communication with the server.
 
-**Comprehensive testing with mcp-cli:**
+### Option 2: Comprehensive Testing (Requires mcp-cli Installation)
+
+**First, install mcp-cli globally:**
+```bash
+npm install -g @modelcontextprotocol/cli
+```
+
+**Then run comprehensive tests:**
 ```bash
 # Set the MCP configuration
 export MCP_CLI_CONFIG_PATH=$(pwd)/mcp_config.json
+# On Windows Command Prompt, use: set MCP_CLI_CONFIG_PATH=%cd%\mcp_config.json
 
 # List available tools
 mcp-cli tool list --server hjmcp-stdio
@@ -52,7 +61,9 @@ mcp-cli tool call list_files --server hjmcp-stdio --input '{"directory": "."}'
 mcp-cli tool read file://package.json --server hjmcp-stdio
 ```
 
-## VSCode Integration
+## VSCode Integration (No mcp-cli Required)
+
+VSCode has built-in MCP support and connects directly to your server. **You do NOT need to install mcp-cli for VSCode integration.**
 
 Add this to your VSCode MCP settings to use this server:
 
@@ -69,7 +80,10 @@ Add this to your VSCode MCP settings to use this server:
 }
 ```
 
-**Note**: Replace `/absolute/path/to/your/hjmcpstdio/directory` with the actual absolute path to this project directory.
+**Important Notes:**
+- Replace `/absolute/path/to/your/hjmcpstdio/directory` with the actual absolute path to this project directory
+- Make sure you've run `npm run build` first to compile the TypeScript
+- VSCode will handle all MCP communication automatically - no additional tools needed
 
 ## Available npm Scripts
 
@@ -108,10 +122,22 @@ Add this to your VSCode MCP settings to use this server:
 - `package.json` - Project configuration and dependencies
 - `tsconfig.json` - TypeScript configuration
 
-## Testing
+## Testing Summary
+
+**Quick Testing (No Additional Setup):**
+- Use `npm run test-simple` for basic functionality verification
+
+**Comprehensive Testing (Requires mcp-cli):**
+- Install mcp-cli globally: `npm install -g @modelcontextprotocol/cli`
+- Use mcp-cli commands for detailed tool and resource testing
+
+**VSCode Integration (No mcp-cli Needed):**
+- Add server configuration to VSCode MCP settings
+- VSCode handles MCP communication automatically
 
 The server has been tested with:
 - ✅ Tool functionality (calculate, list_files)
 - ✅ Resource reading (package.json confirmed working)
 - ✅ Stdio transport communication
 - ✅ MCP protocol compliance
+- ✅ Cross-platform compatibility (Windows, macOS, Linux)
