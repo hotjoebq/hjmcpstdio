@@ -50,7 +50,7 @@ class SimpleTestClient {
   }
 }
 
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const client = new SimpleTestClient();
   client.testServer();
 }
