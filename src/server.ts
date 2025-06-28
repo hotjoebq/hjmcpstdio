@@ -344,7 +344,7 @@ Make the explanation clear and accessible.`,
   }
 }
 
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   const server = new MCPStdioServer();
   server.run().catch((error) => {
     console.error("Server error:", error);

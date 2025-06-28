@@ -1,6 +1,7 @@
 {
   "name": "hjmcp-stdio",
   "version": "1.0.0",
+  "type": "module",
   "description": "A simple MCP server using stdio transport",
   "main": "dist/server.js",
   "scripts": {
